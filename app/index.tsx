@@ -1,6 +1,8 @@
 import { ScrollView, StyleSheet } from "react-native";
 import { HomeScreen } from "./components/HomeScreen";
 import { Counter } from "./components/Counter";
+import { Balance } from "./components/Balance";
+import { Menu } from "./components/Menu";
 import { Sensors } from "./components/Sensors";
 
 export default function Index() {
@@ -8,7 +10,9 @@ export default function Index() {
     <ScrollView style={styles.container}>
       {/* Opcionalmente pasar prop "name" */}
       <HomeScreen />
+      <Menu />
       <Counter />
+      <Balance />
       <Sensors />
     </ScrollView>
   );
