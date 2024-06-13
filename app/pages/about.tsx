@@ -1,13 +1,14 @@
 import { Paragraph } from "@/components/Paragraph";
 import { Title } from "@/components/Title";
 import GlobalStyles from "@/constants/GlobalStyles";
-import { Link, Stack } from "expo-router";
+import { Link } from "expo-router";
+import { Drawer } from "expo-router/drawer";
 import { View } from "react-native";
 
 export default function About() {
   return (
     <View style={GlobalStyles.container}>
-      <Stack.Screen
+      <Drawer.Screen
         options={{
           title: "About",
         }}

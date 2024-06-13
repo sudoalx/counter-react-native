@@ -1,4 +1,3 @@
-import { Stack } from "expo-router";
 import { StyleSheet, Text, View } from "react-native";
 
 interface Props {
@@ -8,11 +7,6 @@ interface Props {
 export const HomeScreen = ({ name }: Props) => {
   return (
     <View style={styles.container}>
-      <Stack.Screen
-        options={{
-          title: "Inicio",
-        }}
-      />
       <Text style={styles.headerTitle}>Bienvenido</Text>
       <Text style={styles.header}>Hola, {name ?? "usuario"}</Text>
     </View>

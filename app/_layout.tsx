@@ -1,17 +1,12 @@
-import { Stack } from "expo-router";
+// Documentation: https://docs.expo.dev/router/advanced/drawer/
+
+import { Drawer } from "expo-router/drawer";
+import { GestureHandlerRootView } from "react-native-gesture-handler";
 
 export default function RootLayout() {
   return (
-    <Stack
-      screenOptions={{
-        headerStyle: {
-          backgroundColor: "#3498db", // Light blue background
-        },
-        headerTintColor: "#FFF", // White text color
-        headerTitleStyle: {
-          fontWeight: "semibold",
-        },
-      }}
-    />
+    <GestureHandlerRootView style={{ flex: 1 }}>
+      <Drawer />
+    </GestureHandlerRootView>
   );
 }
