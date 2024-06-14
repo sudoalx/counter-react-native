@@ -7,7 +7,7 @@ interface Props {
 
 export const Paragraph = ({ children }: Props) => {
   return (
-    <View style={GlobalStyles.paragraphContainer}>
+    <View>
       <Text style={GlobalStyles.paragraphText}>{children}</Text>
     </View>
   );

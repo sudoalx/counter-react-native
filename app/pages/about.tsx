@@ -14,16 +14,13 @@ export default function About() {
       />
       <Title>About us</Title>
       <Paragraph>
-        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nobis
-        molestiae adipisci qui soluta illo tempora consequatur omnis praesentium
-        exercitationem repellendus aliquam facere, eveniet illum. Reiciendis
-        eligendi accusamus cupiditate quaerat fuga?
-      </Paragraph>
-      <Paragraph>
-        Visit us:{" "}
-        <Link style={GlobalStyles.linkText} href="/pages/location" replace>
-          Our offices
-        </Link>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptates aut
+        aliquid iste. Similique velit ratione non enim, harum officiis
+        laboriosam, fugit voluptas nostrum magni incidunt provident facilis
+        aperiam at hic.
+        <View>
+          <Link href="/pages/location"></Link>
+        </View>
       </Paragraph>
     </View>
   );

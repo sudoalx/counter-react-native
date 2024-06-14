@@ -1,13 +1,14 @@
-import { ScrollView, StyleSheet } from "react-native";
+import { ScrollView } from "react-native";
 import { HomeScreen } from "./components/HomeScreen";
 import { Counter } from "./components/Counter";
 import { Balance } from "./components/Balance";
 import { Menu } from "./components/Menu";
 import { Sensors } from "./components/Sensors";
+import GlobalStyles from "@/constants/GlobalStyles";
 
 export default function Index() {
   return (
-    <ScrollView style={styles.container}>
+    <ScrollView style={GlobalStyles.container}>
       {/* Opcionalmente pasar prop "name" */}
       <HomeScreen />
       <Menu />
@@ -17,11 +18,3 @@ export default function Index() {
     </ScrollView>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1, // Allow container to fill the entire screen
-    backgroundColor: "#f0f0f0", // Light background color
-    padding: 20, // Add some padding for visual spacing
-  },
-});
