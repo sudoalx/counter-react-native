@@ -3,8 +3,8 @@ import { HomeScreen } from "./components/HomeScreen";
 import { Counter } from "./components/Counter";
 import { Balance } from "./components/Balance";
 import { Menu } from "./components/Menu";
-import { Sensors } from "./components/Sensors";
 import { Drawer } from "expo-router/drawer";
+import GlobalStyles from "@/constants/GlobalStyles";
 
 export default function Index() {
   return (
@@ -18,7 +18,7 @@ export default function Index() {
       <HomeScreen name="Alex" />
       <Counter />
       <Balance />
-      <Sensors />
+
       <Menu />
     </ScrollView>
   );

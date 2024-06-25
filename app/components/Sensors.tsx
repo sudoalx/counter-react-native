@@ -21,7 +21,6 @@ export const Sensors = () => {
 
   return (
     <View>
-      <Text>Sensors</Text>
       <View>
         <Text>X: {data.x}</Text>
         <Text>Y: {data.y}</Text>

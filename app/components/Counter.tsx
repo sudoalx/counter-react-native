@@ -8,7 +8,7 @@ export const Counter = () => {
   const handleDecrement = () => setCount(count - 1);
 
   return (
-    <View style={GlobalStyles.container}>
+    <View style={GlobalStyles.counterContainer}>
       <Text style={GlobalStyles.counterText}>Contador: {count}</Text>
       <View style={GlobalStyles.buttonsContainer}>
         <TouchableOpacity
