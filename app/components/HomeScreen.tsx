@@ -1,4 +1,4 @@
-import { Stack } from "expo-router";
+import { Drawer } from "expo-router/drawer";
 import { StyleSheet, Text, View } from "react-native";
 
 interface Props {
@@ -8,7 +8,7 @@ interface Props {
 export const HomeScreen = ({ name }: Props) => {
   return (
     <View style={styles.container}>
-      <Stack.Screen
+      <Drawer.Screen
         options={{
           title: "Inicio",
         }}
