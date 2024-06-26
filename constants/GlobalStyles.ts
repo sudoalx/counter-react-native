@@ -27,6 +27,7 @@ export default StyleSheet.create({
     paddingHorizontal: 15,
   },
   paragraphText: {
+    marginVertical: 4,
     fontSize: 16, // Font size
     color: "#333", // Text color
     lineHeight: 22, // Line height
@@ -85,5 +86,9 @@ export default StyleSheet.create({
     paddingHorizontal: 20,
     borderRadius: 100,
     marginHorizontal: 10,
+  },
+  buttonContent: {
+    flexDirection: "row",
+    alignItems: "center",
   },
 });
