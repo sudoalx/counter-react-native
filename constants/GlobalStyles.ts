@@ -43,12 +43,12 @@ export default StyleSheet.create({
     marginVertical: 10, // Vertical margin to space out the menu
   },
   counterContainer: {
-    // classes del contador
+    marginVertical: 20,
     alignItems: "center",
-    backgroundColor: "#66B3FF",
+    justifyContent: "center",
+    backgroundColor: "#00358E",
     borderRadius: 10,
-    padding: 20,
-    margin: 20,
+    paddingVertical: 30,
     shadowColor: "#000",
     shadowOffset: {
       width: 0,
@@ -76,14 +76,14 @@ export default StyleSheet.create({
     backgroundColor: "#28a745",
     paddingVertical: 10,
     paddingHorizontal: 20,
-    borderRadius: 5,
+    borderRadius: 100,
     marginHorizontal: 10,
   },
   decrementButton: {
     backgroundColor: "#dc3545",
     paddingVertical: 10,
     paddingHorizontal: 20,
-    borderRadius: 5,
+    borderRadius: 100,
     marginHorizontal: 10,
   },
 });

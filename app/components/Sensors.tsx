@@ -21,11 +21,9 @@ export const Sensors = () => {
 
   return (
     <View>
-      <View>
-        <Text>X: {data.x}</Text>
-        <Text>Y: {data.y}</Text>
-        <Text>Z: {data.z}</Text>
-      </View>
+      <Text>X: {data.x}</Text>
+      <Text>Y: {data.y}</Text>
+      <Text>Z: {data.z}</Text>
     </View>
   );
 };

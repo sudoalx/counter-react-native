@@ -1,6 +1,6 @@
+import { Paragraph } from "@/components/Paragraph";
 import GlobalStyles from "@/constants/GlobalStyles";
-import { Drawer } from "expo-router/drawer";
-import { StyleSheet, Text, View } from "react-native";
+import { Text, View } from "react-native";
 
 interface Props {
   name?: string;
@@ -8,14 +8,15 @@ interface Props {
 
 export const HomeScreen = ({ name }: Props) => {
   return (
-    <View style={GlobalStyles.container}>
-      <Drawer.Screen
-        options={{
-          title: "Inicio",
-        }}
-      />
+    <View>
       <Text style={GlobalStyles.titleText}>Bienvenido</Text>
-      <Text style={GlobalStyles.header}>Hola, {name ?? "usuario"}</Text>
+      <Text style={GlobalStyles.header}>Hola, {name ?? "usuario"}.</Text>
+      <Paragraph>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Consectetur
+        ducimus pariatur veniam a! Totam neque, odit animi distinctio suscipit
+        veritatis amet magni eveniet ullam dolorem dolore, tempora ut sapiente
+        facilis.
+      </Paragraph>
     </View>
   );
 };
