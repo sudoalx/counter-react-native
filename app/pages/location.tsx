@@ -1,16 +1,13 @@
-import { Drawer } from "expo-router/drawer";
-import { Text, View } from "react-native";
+import { Paragraph } from "@/components/Paragraph";
+import { Title } from "@/components/Title";
+import GlobalStyles from "@/constants/GlobalStyles";
+import { View } from "react-native";
 
 export default function Location() {
   return (
-    <View>
-      <Drawer.Screen
-        options={{
-          title: "Location",
-        }}
-      />
-      <Text>Location</Text>
-      <Text>Visit us at: Street Name, City, Country</Text>
+    <View style={GlobalStyles.container}>
+      <Title>Location</Title>
+      <Paragraph>Visit us at: Street Name, City, Country</Paragraph>
     </View>
   );
 }

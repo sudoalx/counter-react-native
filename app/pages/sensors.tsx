@@ -1,17 +1,13 @@
-import { View, Text } from "react-native";
+import { View } from "react-native";
 import React from "react";
 import { Sensors } from "../components/Sensors";
-import { Drawer } from "expo-router/drawer";
+import { Title } from "@/components/Title";
+import GlobalStyles from "@/constants/GlobalStyles";
 
 const SensorsPage = () => {
   return (
-    <View>
-      <Drawer.Screen
-        options={{
-          title: "Sensors",
-        }}
-      />
-      <Text>Sensores</Text>
+    <View style={GlobalStyles.container}>
+      <Title>Sensors</Title>
       <Sensors />
     </View>
   );
