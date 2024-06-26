@@ -13,6 +13,9 @@ const DrawerLayout = () => {
           options={{
             drawerLabel: "Home",
             headerTitle: "Home",
+            drawerIcon: ({ size, color }) => (
+              <Ionicons name="home-outline" size={size} color={color} />
+            ),
           }}
         />
         <Drawer.Screen
@@ -20,6 +23,9 @@ const DrawerLayout = () => {
           options={{
             drawerLabel: "Balance",
             headerTitle: "Balance",
+            drawerIcon: ({ size, color }) => (
+              <Ionicons name="wallet-outline" size={size} color={color} />
+            ),
           }}
         />
         <Drawer.Screen
@@ -27,6 +33,9 @@ const DrawerLayout = () => {
           options={{
             drawerLabel: "Sensors",
             headerTitle: "Sensors",
+            drawerIcon: ({ size, color }) => (
+              <Ionicons name="settings-outline" size={size} color={color} />
+            ),
           }}
         />
         <Drawer.Screen
@@ -34,6 +43,9 @@ const DrawerLayout = () => {
           options={{
             drawerLabel: "Contact",
             headerTitle: "Contact",
+            drawerIcon: ({ size, color }) => (
+              <Ionicons name="mail-outline" size={size} color={color} />
+            ),
           }}
         />
         <Drawer.Screen
@@ -41,6 +53,9 @@ const DrawerLayout = () => {
           options={{
             drawerLabel: "Location",
             headerTitle: "Location",
+            drawerIcon: ({ size, color }) => (
+              <Ionicons name="pin-outline" size={size} color={color} />
+            ),
           }}
         />
         <Drawer.Screen
@@ -48,6 +63,9 @@ const DrawerLayout = () => {
           options={{
             drawerLabel: "About",
             headerTitle: "About",
+            drawerIcon: ({ size, color }) => (
+              <Ionicons name="information-outline" size={size} color={color} />
+            ),
           }}
         />
       </Drawer>
