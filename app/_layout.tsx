@@ -13,13 +13,13 @@ const DrawerLayout = () => {
           options={{
             drawerLabel: "Home",
             headerTitle: "Home",
-            drawerIcon: ({ size, color }) => (
+            drawerIcon: ({ color, size }) => (
               <Ionicons name="home-outline" size={size} color={color} />
             ),
           }}
         />
         <Drawer.Screen
-          name="pages/balance"
+          name="(pages)/balance"
           options={{
             drawerLabel: "Balance",
             headerTitle: "Balance",
@@ -29,7 +29,7 @@ const DrawerLayout = () => {
           }}
         />
         <Drawer.Screen
-          name="pages/sensors"
+          name="(pages)/sensors"
           options={{
             drawerLabel: "Sensors",
             headerTitle: "Sensors",
@@ -39,7 +39,7 @@ const DrawerLayout = () => {
           }}
         />
         <Drawer.Screen
-          name="pages/contact"
+          name="(pages)/contact"
           options={{
             drawerLabel: "Contact",
             headerTitle: "Contact",
@@ -49,7 +49,7 @@ const DrawerLayout = () => {
           }}
         />
         <Drawer.Screen
-          name="pages/location"
+          name="(pages)/location"
           options={{
             drawerLabel: "Location",
             headerTitle: "Location",
@@ -59,7 +59,7 @@ const DrawerLayout = () => {
           }}
         />
         <Drawer.Screen
-          name="pages/about"
+          name="(pages)/about"
           options={{
             drawerLabel: "About",
             headerTitle: "About",
