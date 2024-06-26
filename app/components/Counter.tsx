@@ -1,4 +1,5 @@
 import GlobalStyles from "@/constants/GlobalStyles";
+import { Ionicons } from "@expo/vector-icons";
 import { useState } from "react";
 import { Text, TouchableOpacity, View } from "react-native";
 
@@ -9,19 +10,23 @@ export const Counter = () => {
 
   return (
     <View style={GlobalStyles.counterContainer}>
-      <Text style={GlobalStyles.counterText}>Contador: {count}</Text>
+      <Text style={GlobalStyles.counterText}>Counter: {count}</Text>
       <View style={GlobalStyles.buttonsContainer}>
         <TouchableOpacity
           onPress={handleDecrement}
           style={GlobalStyles.decrementButton}
         >
-          <Text style={GlobalStyles.buttonText}>Decrementar</Text>
+          <View style={GlobalStyles.buttonContent}>
+            <Ionicons name="remove-circle" size={32} color="white" />
+          </View>
         </TouchableOpacity>
         <TouchableOpacity
           onPress={handleIncrement}
           style={GlobalStyles.incrementButton}
         >
-          <Text style={GlobalStyles.buttonText}>Incrementar</Text>
+          <View style={GlobalStyles.buttonContent}>
+            <Ionicons name="add-circle" size={32} color="white" />
+          </View>
         </TouchableOpacity>
       </View>
     </View>
