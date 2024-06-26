@@ -7,7 +7,7 @@ import { Title } from "@/components/Title";
 const BalancePage = () => {
   return (
     <View style={GlobalStyles.container}>
-      <Title>Balance</Title>
+      <Title>Your balance</Title>
       <Balance />
     </View>
   );
