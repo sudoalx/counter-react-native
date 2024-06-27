@@ -13,11 +13,7 @@ export const Menu = () => {
     { name: "About", path: "/(pages)/about" },
     { name: "Contact", path: "/(pages)/contact" },
     { name: "Location", path: "/(pages)/location" },
-    { name: "Location", path: "/(pages)/location" },
-    { name: "Location", path: "/(pages)/location" },
-    { name: "Location", path: "/(pages)/location" },
-    { name: "Location", path: "/(pages)/location" },
-    { name: "Location", path: "/(pages)/location" },
+    { name: "Senors", path: "/(pages)/sensors" },
   ];
   return (
     <View style={GlobalStyles.menuContainer}>
