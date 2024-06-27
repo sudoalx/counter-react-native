@@ -34,7 +34,7 @@ export default StyleSheet.create({
   },
   menuContainer: {
     padding: 20,
-    backgroundColor: "#ffffff", // White background color
+    backgroundColor: "#bd93f9",
     borderRadius: 10, // Rounded corners
     shadowColor: "#000", // Shadow color for Android
     shadowOffset: { width: 0, height: 2 }, // Shadow offset for iOS

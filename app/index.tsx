@@ -1,4 +1,4 @@
-import { ScrollView } from "react-native";
+import { View } from "react-native";
 import { HomeScreen } from "./components/HomeScreen";
 import { Counter } from "./components/Counter";
 import { Menu } from "./components/Menu";
@@ -7,11 +7,11 @@ import GlobalStyles from "@/constants/GlobalStyles";
 
 export default function Index() {
   return (
-    <ScrollView style={GlobalStyles.container}>
+    <View style={GlobalStyles.container}>
       {/* Opcionalmente pasar prop "name" */}
       <HomeScreen name="Alex" />
       <Counter />
       <Menu />
-    </ScrollView>
+    </View>
   );
 }
