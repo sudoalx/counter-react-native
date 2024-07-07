@@ -3,7 +3,7 @@ import { StyleSheet } from "react-native";
 export default StyleSheet.create({
   container: {
     flex: 1, // Allow container to fill the entire screen
-    backgroundColor: "#f0f0f0", // Light background color
+    backgroundColor: "#A8FF33", // Light background color
     padding: 20, // Add some padding for visual spacing
   },
   header: {

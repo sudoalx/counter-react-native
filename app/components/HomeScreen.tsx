@@ -9,13 +9,13 @@ interface Props {
 export const HomeScreen = ({ name }: Props) => {
   return (
     <View>
-      <Text style={GlobalStyles.titleText}>Welcome</Text>
-      <Text style={GlobalStyles.header}>Hello, {name ?? "usuario"}.</Text>
+      <Text style={GlobalStyles.titleText}>Proyecto Unidad II - Continuación del desarrollo de la app</Text>
+      <Text style={GlobalStyles.header}>Hola, {name ?? "usuario"}.</Text>
       <Paragraph>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Consectetur
-        ducimus pariatur veniam a! Totam neque, odit animi distinctio suscipit
-        veritatis amet magni eveniet ullam dolorem dolore, tempora ut sapiente
-        facilis.
+       Bienvenido a mi Proyecto Unidad II - Continuación del desarrollo de la app
+       Este fue creado por Diana, Yaneth, Sandra, Danielle y Cristian
+       Este lo creamos en clase con ayuda de nuestro profesor Nestor Alexander Castañeda
+       El cual Dia a dia en clase nos explicaba y enseñaba paso a paso 
       </Paragraph>
     </View>
   );
