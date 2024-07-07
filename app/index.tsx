@@ -9,7 +9,7 @@ export default function Index() {
   return (
     <View style={GlobalStyles.container}>
       {/* Opcionalmente pasar prop "name" */}
-      <HomeScreen name="Alex" />
+      <HomeScreen name="Equipo" />
       <Counter />
       <Menu />
     </View>
