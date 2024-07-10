@@ -6,11 +6,11 @@ import { RootSiblingParent } from "react-native-root-siblings";
 
 export const Balance = () => {
   const [showBalance, setShowBalance] = useState(false);
-  
-  const toggleShow = (state: boolean) => {
-    setShowBalance(!state);
+
+  const onToggle = () => {
+    setShowBalance(!showBalance);
     let msg: string = "Balance hidden";
-    if (!state) {
+    if (!showBalance) {
       msg = "Showing balance";
     }
     // Add a Toast on screen.
@@ -53,7 +53,7 @@ export const Balance = () => {
         >
           <TouchableOpacity
             style={styles.fingerprintButton}
-            onPress={() => toggleShow(showBalance)}
+            onPress={() => onToggle}
           >
             <View>
               <Ionicons name="finger-print" size={64} />
