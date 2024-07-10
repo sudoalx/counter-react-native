@@ -8,6 +8,7 @@ export const Balance = () => {
   const [showBalance, setShowBalance] = useState(false);
 
   const onToggle = () => {
+    console.log("clicked state:", showBalance);
     setShowBalance(!showBalance);
     let msg: string = "Balance hidden";
     if (!showBalance) {
@@ -53,7 +54,7 @@ export const Balance = () => {
         >
           <TouchableOpacity
             style={styles.fingerprintButton}
-            onPress={() => onToggle}
+            onPress={() => onToggle()}
           >
             <View>
               <Ionicons name="finger-print" size={64} />
