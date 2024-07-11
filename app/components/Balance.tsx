@@ -20,22 +20,23 @@ export const Balance = () => {
     let authType =
       await LocalAuthentication.supportedAuthenticationTypesAsync();
     console.log({ authType });
-
-    const { success } = await LocalAuthentication.authenticateAsync({
-      promptMessage: "Authenticate to show your balance",
-    });
-
-    console.log({ success });
-
-    // Toggle balance
-    setShowBalance(!showBalance);
-
-    // Msg for when the balance is hidden
-    let msg: string = "Balance hidden";
+    let msg: string = "Auth error";
     if (!showBalance) {
-      // Msg for when the balance is shown
-      msg = "Showing balance";
+      const { success } = await LocalAuthentication.authenticateAsync({
+        promptMessage: "Authenticate to show your balance",
+      });
+      console.log({ success });
+      if (success) {
+        msg = "Showing balance";
+        setShowBalance(!showBalance);
+      }
+    } else if (showBalance) {
+      // Toggle balance
+      // Msg for when the balance is hidden
+      msg = "Balance hidden";
+      setShowBalance(!showBalance);
     }
+
     // Add a Toast on screen.
     Toast.show(msg, {
       duration: Toast.durations.SHORT,
