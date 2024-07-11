@@ -1,17 +1,39 @@
 import { Ionicons } from "@expo/vector-icons";
-import { useState } from "react";
-import { StyleSheet, Text, TouchableOpacity, View } from "react-native";
-import Toast from "react-native-root-toast";
 import { RootSiblingParent } from "react-native-root-siblings";
+import { StyleSheet, Text, TouchableOpacity, View } from "react-native";
+import { useState } from "react";
+import Toast from "react-native-root-toast";
+import * as LocalAuthentication from "expo-local-authentication";
 
 export const Balance = () => {
   const [showBalance, setShowBalance] = useState(false);
 
-  const onToggle = () => {
-    console.log("clicked state:", showBalance);
+  const onToggle = async () => {
+    // Log whether balance is shown or hidden
+    console.log({ showBalance });
+
+    // Check if device has biometric auth hardware
+    let hasHW = await LocalAuthentication.hasHardwareAsync();
+    console.log({ hasHW });
+
+    // Check for auth type
+    let authType =
+      await LocalAuthentication.supportedAuthenticationTypesAsync();
+    console.log({ authType });
+
+    const { success } = await LocalAuthentication.authenticateAsync({
+      promptMessage: "Authenticate to show your balance",
+    });
+
+    console.log({ success });
+
+    // Toggle balance
     setShowBalance(!showBalance);
+
+    // Msg for when the balance is hidden
     let msg: string = "Balance hidden";
     if (!showBalance) {
+      // Msg for when the balance is shown
       msg = "Showing balance";
     }
     // Add a Toast on screen.
@@ -57,10 +79,13 @@ export const Balance = () => {
             onPress={() => onToggle()}
           >
             <View>
-              <Ionicons name="finger-print" size={64} />
+              <Ionicons
+                name={showBalance ? "lock-open" : "finger-print"}
+                size={64}
+              />
             </View>
           </TouchableOpacity>
-          <Text>Show balance</Text>
+          <Text>{showBalance ? "Hide" : "Show"} balance</Text>
         </View>
       </View>
     </RootSiblingParent>
