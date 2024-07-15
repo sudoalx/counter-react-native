@@ -1,43 +1,85 @@
 import { Ionicons } from "@expo/vector-icons";
 import { RootSiblingParent } from "react-native-root-siblings";
 import { StyleSheet, Text, TouchableOpacity, View } from "react-native";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Toast from "react-native-root-toast";
 import * as LocalAuthentication from "expo-local-authentication";
 
+type LocalAuthenticationResult = {
+  success: boolean;
+  error?: string;
+  warning?: string;
+};
+type IconName = "finger-print" | "happy" | "eye";
+
 export const Balance = () => {
   const [showBalance, setShowBalance] = useState(false);
+  const [authType, setAuthType] = useState<IconName>("finger-print");
+  const [error, setError] = useState(false);
 
-  const onToggle = async () => {
-    // Log whether balance is shown or hidden
-    console.log({ showBalance });
+  useEffect(() => {
+    logAuthDetails();
+  }, []);
 
-    // Check if device has biometric auth hardware
-    let hasHW = await LocalAuthentication.hasHardwareAsync();
+  const logAuthDetails = async () => {
+    const hasHW = await LocalAuthentication.hasHardwareAsync();
     console.log({ hasHW });
 
-    // Check for auth type
-    let authType =
+    const authType =
       await LocalAuthentication.supportedAuthenticationTypesAsync();
     console.log({ authType });
-    let msg: string = "Auth error";
-    if (!showBalance) {
-      const { success } = await LocalAuthentication.authenticateAsync({
+    switch (authType[0]) {
+      case 1:
+        setAuthType("finger-print");
+        break;
+
+      case 2:
+        setAuthType("happy");
+        break;
+
+      case 3:
+        setAuthType("eye");
+        break;
+      default:
+        break;
+    }
+  };
+
+  const authenticateUser = async () => {
+    const authResult: LocalAuthenticationResult =
+      await LocalAuthentication.authenticateAsync({
         promptMessage: "Authenticate to show your balance",
       });
-      console.log({ success });
+    console.log(authResult);
+
+    return authResult;
+  };
+
+  const onToggle = async () => {
+    console.log({ showBalance });
+
+    await logAuthDetails();
+
+    let msg: string = "Auth error";
+
+    if (!showBalance) {
+      const { success, error, warning } = await authenticateUser();
+
+      console.log({ success, error, warning });
+
       if (success) {
         msg = "Showing balance";
-        setShowBalance(!showBalance);
+        setShowBalance(true);
+        setError(false);
+      } else if (error) {
+        setError(true);
+        msg = `${warning}`;
       }
-    } else if (showBalance) {
-      // Toggle balance
-      // Msg for when the balance is hidden
+    } else {
       msg = "Balance hidden";
-      setShowBalance(!showBalance);
+      setShowBalance(false);
     }
 
-    // Add a Toast on screen.
     Toast.show(msg, {
       duration: Toast.durations.SHORT,
     });
@@ -58,7 +100,7 @@ export const Balance = () => {
                   <View
                     key={`${_i}-dot`}
                     style={styles.balanceTextSkeletonDot}
-                  ></View>
+                  />
                 ))}
             </View>
           )}
@@ -76,17 +118,32 @@ export const Balance = () => {
           style={{ flex: 1, justifyContent: "center", alignItems: "center" }}
         >
           <TouchableOpacity
-            style={styles.fingerprintButton}
+            style={[
+              styles.fingerprintButton,
+              error && { borderColor: "red" },
+              showBalance && { borderColor: "limegreen" },
+            ]}
             onPress={() => onToggle()}
           >
             <View>
               <Ionicons
-                name={showBalance ? "lock-open" : "finger-print"}
+                name={showBalance ? "lock-open" : `${authType}`}
                 size={64}
+                style={
+                  error
+                    ? { color: "red" }
+                    : showBalance && { color: "limegreen" }
+                }
               />
             </View>
           </TouchableOpacity>
-          <Text>{showBalance ? "Hide" : "Show"} balance</Text>
+          <Text style={error && { color: "red" }}>
+            {!error
+              ? showBalance
+                ? "Hide balance"
+                : "Show balance"
+              : "Try again"}
+          </Text>
         </View>
       </View>
     </RootSiblingParent>
