@@ -2,6 +2,7 @@ import { Paragraph } from "@/components/Paragraph";
 import { Title } from "@/components/Title";
 import GlobalStyles from "@/constants/GlobalStyles";
 import { View } from "react-native";
+import { MapComponent } from "../components/MapComponent";
 
 export default function Location() {
   return (
@@ -13,6 +14,7 @@ export default function Location() {
         accusamus nihil et quis nisi odit modi, facere iusto ipsam deleniti?
       </Paragraph>
       <Paragraph>Visit us at: Street Name, City, Country</Paragraph>
+      <MapComponent />
     </View>
   );
 }
