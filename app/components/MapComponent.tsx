@@ -2,10 +2,11 @@ import React, { useState, useEffect } from "react";
 import { Text, View, StyleSheet } from "react-native";
 import * as Location from "expo-location";
 import { LocationObject } from "expo-location";
+import MapView, { Marker } from "react-native-maps";
 
 export const MapComponent = () => {
-  const [location, setLocation] = useState<LocationObject | null>();
-  const [errorMsg, setErrorMsg] = useState("");
+  const [location, setLocation] = useState<LocationObject | null>(null);
+  const [errorMsg, setErrorMsg] = useState<string | null>(null);
 
   useEffect(() => {
     (async () => {
@@ -27,9 +28,20 @@ export const MapComponent = () => {
     text = JSON.stringify(location);
   }
 
+  const mapRegion = {
+    latitude: location?.coords.latitude ?? 37.78825,
+    longitude: location?.coords.longitude ?? -122.4324,
+    latitudeDelta: location?.coords.latitude ?? 37.78825,
+    longitudeDelta: location?.coords.longitude ?? -122.4324,
+  };
+  console.log(mapRegion);
+
   return (
     <View style={styles.container}>
       <Text style={styles.paragraph}>{text}</Text>
+      <MapView style={styles.map} region={mapRegion}>
+        <Marker coordinate={mapRegion} title="Marker" />
+      </MapView>
     </View>
   );
 };
@@ -44,5 +56,9 @@ const styles = StyleSheet.create({
   paragraph: {
     fontSize: 18,
     textAlign: "center",
+  },
+  map: {
+    width: "100%",
+    height: "100%",
   },
 });
