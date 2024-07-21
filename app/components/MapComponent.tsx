@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { Text, View, StyleSheet } from "react-native";
+import { Text, View, StyleSheet, TextInput } from "react-native";
 import * as Location from "expo-location";
 import { LocationObject } from "expo-location";
 import MapView, { Marker } from "react-native-maps";
@@ -31,16 +31,18 @@ export const MapComponent = () => {
   const mapRegion = {
     latitude: location?.coords.latitude ?? 37.78825,
     longitude: location?.coords.longitude ?? -122.4324,
-    latitudeDelta: location?.coords.latitude ?? 37.78825,
-    longitudeDelta: location?.coords.longitude ?? -122.4324,
+    latitudeDelta: 0.0092,
+    longitudeDelta: 0.0092,
   };
   console.log(mapRegion);
 
   return (
     <View style={styles.container}>
-      <Text style={styles.paragraph}>{text}</Text>
-      <MapView style={styles.map} region={mapRegion}>
-        <Marker coordinate={mapRegion} title="Marker" />
+      <TextInput>
+        <Text style={styles.paragraph}>{text}</Text>
+      </TextInput>
+      <MapView style={styles.map} initialRegion={mapRegion}>
+        <Marker coordinate={mapRegion} title="Current location" />
       </MapView>
     </View>
   );
