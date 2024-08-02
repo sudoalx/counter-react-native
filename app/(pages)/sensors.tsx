@@ -3,7 +3,7 @@ import React from "react";
 import { AccelerometerComponent } from "../components/Accelerometer";
 import GlobalStyles from "@/constants/GlobalStyles";
 import { GyroscopeComponent } from "../components/Gyroscope";
-import { LightSensorComponent } from "../components/LightSensorComponent";
+import { LightSensorComponent } from "../components/LightSensor";
 
 const SensorsPage = () => {
   return (

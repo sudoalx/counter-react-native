@@ -1,4 +1,4 @@
-import { Title } from "@/components/Title";
+import { useState, useEffect } from "react";
 import {
   StyleSheet,
   Text,
@@ -7,18 +7,13 @@ import {
   Platform,
 } from "react-native";
 import { LightSensor } from "expo-sensors";
-import { useEffect, useState } from "react";
 
 type Subscription = {
+  /**
+   * A method to unsubscribe the listener.
+   */
   remove: () => void;
 };
-
-enum IlluminanceLevel {
-  Dim = "Dim",
-  Normal = "Normal",
-  Bright = "Bright",
-  NoData = "No data",
-}
 
 export const LightSensorComponent = () => {
   const [{ illuminance }, setData] = useState({ illuminance: 0 });
@@ -50,35 +45,21 @@ export const LightSensorComponent = () => {
     return () => unsubscribe();
   }, []);
 
-  const getIlluminanceLevel = (illuminance: number): IlluminanceLevel => {
-    switch (true) {
-      case illuminance < 50:
-        return IlluminanceLevel.Dim;
-      case illuminance < 1000:
-        return IlluminanceLevel.Normal;
-      default:
-        return IlluminanceLevel.Bright;
-    }
-  };
-
   return (
-    <>
-      <Title>Light Sensor</Title>
-      <View style={styles.sensor}>
-        <Text>
-          Illuminance:{" "}
-          {Platform.OS === "android"
-            ? `${illuminance} lx`
-            : `Only available on Android`}
-        </Text>
-        <Text>Illuminance Level: {getIlluminanceLevel(illuminance)}</Text>
-        <View style={styles.buttonContainer}>
-          <TouchableOpacity onPress={toggle} style={styles.button}>
-            <Text>Toggle</Text>
-          </TouchableOpacity>
-        </View>
+    <View style={styles.sensor}>
+      <Text>Light Sensor:</Text>
+      <Text>
+        Illuminance:{" "}
+        {Platform.OS === "android"
+          ? `${illuminance} lx`
+          : `Only available on Android`}
+      </Text>
+      <View style={styles.buttonContainer}>
+        <TouchableOpacity onPress={toggle} style={styles.button}>
+          <Text>Toggle</Text>
+        </TouchableOpacity>
       </View>
-    </>
+    </View>
   );
 };
 
