@@ -13,6 +13,13 @@ type Subscription = {
   remove: () => void;
 };
 
+enum IlluminanceLevel {
+  Dim = "Dim",
+  Normal = "Normal",
+  Bright = "Bright",
+  NoData = "No data",
+}
+
 export const LightSensorComponent = () => {
   const [{ illuminance }, setData] = useState({ illuminance: 0 });
   const [subscription, setSubscription] = useState<null | Subscription>(null);
@@ -43,6 +50,17 @@ export const LightSensorComponent = () => {
     return () => unsubscribe();
   }, []);
 
+  const getIlluminanceLevel = (illuminance: number): IlluminanceLevel => {
+    switch (true) {
+      case illuminance < 50:
+        return IlluminanceLevel.Dim;
+      case illuminance < 1000:
+        return IlluminanceLevel.Normal;
+      default:
+        return IlluminanceLevel.Bright;
+    }
+  };
+
   return (
     <>
       <Title>Light Sensor</Title>
@@ -53,6 +71,7 @@ export const LightSensorComponent = () => {
             ? `${illuminance} lx`
             : `Only available on Android`}
         </Text>
+        <Text>Illuminance Level: {getIlluminanceLevel(illuminance)}</Text>
         <View style={styles.buttonContainer}>
           <TouchableOpacity onPress={toggle} style={styles.button}>
             <Text>Toggle</Text>
