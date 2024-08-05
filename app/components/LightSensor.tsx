@@ -7,6 +7,7 @@ import {
   Platform,
 } from "react-native";
 import { LightSensor } from "expo-sensors";
+import { Title } from "@/components/Title";
 
 type Subscription = {
   /**
@@ -47,7 +48,7 @@ export const LightSensorComponent = () => {
 
   return (
     <View style={styles.sensor}>
-      <Text>Light Sensor:</Text>
+      <Title>Light Sensor:</Title>
       <Text>
         Illuminance:{" "}
         {Platform.OS === "android"
